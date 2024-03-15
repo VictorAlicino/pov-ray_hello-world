@@ -1,26 +1,6 @@
 #include "colors.inc"
 
-// If you come from any respected software like 3DS Max, C4D or Blender, remember this below:
-// ---->>> < X, Z, Y > <<<----
-
-
-sphere{
-    0,1
-    pigment{
-        image_map{
-            hdr "st_nicholaus.hdr" once interpolate 2 map_type // Get from https://hdrmaps.com/st-nicolaus-church-interior/
-            1
-        }
-    }
-    finish{emission 1}
-    scale 1000 // make sure the sphere is big enough to cover the whole scene
-    rotate<100,0,0>
-    hollow
-    no_image
-}
-
-
-/*
+// * ---------------------- DEBUG HEADER ---------------------- *
 // Gradient Sky (Use for DEBUG since HDRI Skies are EXTREMELLY HEAVY)
 sky_sphere {
     pigment {
@@ -32,10 +12,10 @@ sky_sphere {
 }
 
 // Axis Lines
-cylinder{<0,0,0>,<50,0,0>,0.5 pigment{color Red}}  // X-Axis
+cylinder{<0,0,0>,<50,0,0>,0.5 pigment{color Red}}   // X-Axis
 cylinder{<0,0,0>,<0,50,0>,0.5 pigment{color Green}} // Y-Axis
-cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}// Z-Axis
-*/
+cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}  // Z-Axis
+
 
 camera {
   location < 350,60,280>
@@ -47,6 +27,8 @@ light_source { < 300, 200, 50 > color White}
 light_source { < -120, 00, 0 > color White}
 light_source { < -120, -150, 0 > color White}
 
+// * -------------------- END OFDEBUG HEADER ------------------ *
+
 union{
     torus {
         50, 2
@@ -54,7 +36,7 @@ union{
         rotate <0, 0, -90> // rotate the torus 90 degrees around the y-axis
     }
 
-    union{ // Corneta do Trompete (Torricelli's Trumpet)
+    union{ // Trumpet Horn (Torricelli's Trumpet)
         #local start_x = 100;
         #local d = 0.1;
         #local end_x = 500;
