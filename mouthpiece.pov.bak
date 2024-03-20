@@ -1,5 +1,4 @@
 #include "colors.inc"
-#include "shapes.inc"
 
 // * ---------------------- DEBUG HEADER ---------------------- *
 // Gradient Sky (Use for DEBUG since HDRI Skies are EXTREMELLY HEAVY)
@@ -31,15 +30,13 @@ light_source { < -120, -150, 0 > color White}
 // * -------------------- END OFDEBUG HEADER ------------------ *
 
     difference{
-        object { //Round_Cylinder(point A, point B, Radius, EdgeRadius, UseMerge)
-            Round_Cylinder(<2.5,0,0>, <-2.5,0,0>, 1.3 , 0.20, 0)  
-
-            texture{ pigment{ color rgb<1,0.2,0.35> }
-                //normal { radial sine_wave frequency 30 scale 0.25 }
-                finish { phong 1 }
-            }
-            scale<10,10,10>  rotate<0, 0,0> translate<0,0.00,0>
+        cylinder {
+          <20,0,0>, <15,0,0>
+          10
+          pigment { color rgb<1,0,0> }
+          finish { ambient 0.1 diffuse 0.9 }
         }
+
         sphere{
             <25,0,0>, 10
             pigment { color rgb<1,1,1> }
