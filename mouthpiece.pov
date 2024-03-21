@@ -23,13 +23,13 @@ cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}  // Z-Axis
     }
 
 #declare camera_1 = camera{
-    location < 50,20,72>
+    location < 100,50,150>
     right  <1.77,0,0>
     look_at < 0,0,0>
 }
 
 #declare camera_2 = camera{
-    location < -100,50,72>
+    location < 120,50,100>
     right  <1.77,0,0>
     look_at < 0,0,0> 
 }
@@ -40,21 +40,26 @@ cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}  // Z-Axis
     look_at < 0,0,0> 
 }
 #declare camera_4 = camera{
-    location < 0,200,100>
+    location < 0,0, 200>
     right  <1.77,0,0>
     look_at < 0,0,0> 
 }
 #declare camera_5 = camera{
-    location < 0,200,100>
+    location < 120,150,220>
+    right  <1.77,0,0>
+    look_at < 0,0,0> 
+}
+#declare camera_6 = camera{
+    location < -60,60,150>
     right  <1.77,0,0>
     look_at < 0,0,0> 
 }
 
-light_source { < 300, 200, 50 > color White}
+light_source { < 300, 200, 50 > color White}                                                                                                
 light_source { < -120, 00, 0 > color White}
 light_source { < -120, -150, 0 > color White}
 
-camera{camera_4}
+camera{camera_5}
 
 // * -------------------- END OFDEBUG HEADER ------------------ *
 merge{
@@ -79,15 +84,22 @@ merge{
             rotate <0, 0, -90> // rotate the torus 90 degrees around the y-axis
         }
     }
-    texture{golden_texture}
-    translate<50, 0, 0>
-}
-difference{
-    sphere{
-            <0,0,0>, 40
+    difference{
+        sphere{
+                <0,0,0>, 40
+        }
+        box{
+            <45,45,45>,<0,-45,-45>
+            pigment{
+                color rgb<0.5,0.5,0.5>
+            }
+        }
+        texture{golden_texture}
     }
+    object {Round_Cylinder(<1,0,0>, <-5,0,0>, 42 , 1, 0)}
+    cylinder{<0,0,0>,<-100,0,0>,25}
+    object {Round_Cylinder(<-30,0,0>, <-35,0,0>, 28 , 1, 0)}
+
     texture{golden_texture}
+    translate<0, 0, 0>
 }
-    box{
-        <-20,-20,-20>,<20,20,20>
-    }

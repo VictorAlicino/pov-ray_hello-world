@@ -29,6 +29,11 @@ light_source { < -120, -150, 0 > color White}
 
 // * -------------------- END OFDEBUG HEADER ------------------ *
 
+#declare golden_texture = texture {
+        pigment { color rgb <0.4, 0.2, 0> }
+        finish { reflection { 0.1 } ambient 0 diffuse 0.8 }
+    }
+
 union{
     torus {
         50, 2
@@ -67,9 +72,6 @@ union{
         translate<0,0,0>
     }
 
-    texture {
-        pigment { color rgb <0.4, 0.2, 0> }
-        finish { reflection { 1 } ambient 0 diffuse 0.8 }
-    }
+    texture {golden_texture}
     translate<250,0,0>
 }
