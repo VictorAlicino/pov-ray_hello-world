@@ -66,7 +66,7 @@ union{
         open
         translate<0,0,0>
     }
-    
+
     texture {
         pigment { color rgb <0.4, 0.2, 0> }
         finish { reflection { 1 } ambient 0 diffuse 0.8 }
