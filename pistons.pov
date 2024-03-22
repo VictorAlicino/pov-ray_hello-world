@@ -68,14 +68,21 @@
     }
 
     object {Round_Cylinder(<-80,0,0>, <-125,0,0>, 10 , 2, 0)}
-    object{ Segment_of_Torus ( 15, 10, 180 ) //radius major, radius minor, segment angle
-        rotate<90,-45,90> translate<-125,-11,-9>
+    object{ Segment_of_Torus ( 14.5, 10, 180 ) //radius major, radius minor, segment angle
+        rotate<90,-40,90> translate<-123,-11,-09>
     }
     cylinder{
-        <-37.5,0,0>,<37.5,0,0>,10
-        rotate<0,0,-8>
-        translate<-100,-25,-15>
-        }
+        <-37.5,0,0>,<32,0,0>,10
+        rotate<-3,0,-6>
+        translate<-92,-25,-18>
+    }
+    object{ Segment_of_Torus ( 15, 10, 90 ) //radius major, radius minor, segment angle
+        rotate<0,0,-5> translate<-66,-28,-3>
+    }
+
+    object{ Segment_of_Torus ( 15, 10, 90 ) //radius major, radius minor, segment angle
+        rotate<0,0,180> translate<64,-15,-10>
+    }
  
 
     texture{golden_texture}
