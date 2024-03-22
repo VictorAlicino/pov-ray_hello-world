@@ -16,9 +16,9 @@ sphere{
     }
     finish{emission 1}
     scale 1000
-    rotate<100,0,0>
+    rotate<0,0,0>
     hollow
-    no_image
+    //no_image
 }
 
 #declare top_view = camera{
@@ -53,10 +53,13 @@ sphere{
 }
 
 
-#declare camera_1 = camera{
-    location < 100,50,150>
-    right  <1.77,0,0>
-    look_at < 0,0,0>
+#declare camera_1 = camera {
+    location <100, 50, 150>
+    right <1.77, 0, 0>
+    look_at <0, 0, 0>
+    aperture 0.3
+    focal_point <0, 0, 0> 
+    blur_samples 10 
 }
 #declare camera_2 = camera{
     location < 120,50,100>
@@ -130,7 +133,7 @@ light_source { < -120, -150, 0 > color White}
 light_source { < 0, 0, 0 > color White}
 light_source { < 800, 200, -50 > color White}  
 
-camera{right_view}
+camera{camera_1}
 
 #include "bell.pov"
 #include "mouthpiece.pov"
