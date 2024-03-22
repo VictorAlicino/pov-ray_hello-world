@@ -130,7 +130,7 @@ light_source { < -120, -150, 0 > color White}
 light_source { < 0, 0, 0 > color White}
 light_source { < 800, 200, -50 > color White}  
 
-camera{front_view}
+camera{right_view}
 
 #include "bell.pov"
 #include "mouthpiece.pov"
