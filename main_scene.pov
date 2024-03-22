@@ -18,16 +18,16 @@ sphere{
     scale 1000
     rotate<0,0,0>
     hollow
-    //no_image
+    no_image
 }
 
 #declare top_view = camera{
-    location < 0, 500, 0>
+    location < 50, 650, 0>
     right  <1.77,0,0>
-    look_at < 0,0,0>
+    look_at < 50,0,0>
 }
 #declare left_view = camera{
-    location < 0, 0, 500>
+    location < 0, 0, 600>
     right  <1.77,0,0>
     look_at < 0,0,0>
 }
@@ -47,7 +47,7 @@ sphere{
     look_at < 0,0,0>
 }
 #declare bottom_view = camera{
-    location < 50, -200, 0>
+    location < 50, -600, 0>
     right  <1.77,0,0>
     look_at < 0,0,0>
 }
@@ -57,9 +57,6 @@ sphere{
     location <100, 50, 150>
     right <1.77, 0, 0>
     look_at <0, 0, 0>
-    aperture 0.3
-    focal_point <0, 0, 0> 
-    blur_samples 10 
 }
 #declare camera_2 = camera{
     location < 120,50,100>
@@ -122,9 +119,14 @@ sphere{
     look_at < -90,-25,-20>
 }
 #declare camera_e = camera{
-    location < -200, -20, -180>
+    location < -200, 90, -180>
     right  <1.77,0,0>
     look_at < -250,-25,-20>
+}
+#declare camera_f = camera{
+    location < -470, 84, -100>
+    right  <1.77,0,0>
+    look_at < -380,81,-50>
 }
        
 light_source { < 300, 200, 50 > color White}                                                                                                
@@ -133,8 +135,7 @@ light_source { < -120, -150, 0 > color White}
 light_source { < 0, 0, 0 > color White}
 light_source { < 800, 200, -50 > color White}  
 
-camera{camera_1}
-
+camera{camera_f}
 #include "bell.pov"
 #include "mouthpiece.pov"
 #include "pistons.pov"
