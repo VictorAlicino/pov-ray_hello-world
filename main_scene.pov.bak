@@ -2,6 +2,7 @@
 // ---->>> < X, Z, Y > <<<----
 
 #include "colors.inc"
+
 /*
 sphere{
     0,1
@@ -30,15 +31,10 @@ sky_sphere {
     }
 }
 
-// Axis Lines
-cylinder{<0,0,0>,<50,0,0>,0.5 pigment{color Red}}   // X-Axis
-cylinder{<0,0,0>,<0,50,0>,0.5 pigment{color Green}} // Y-Axis
-cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}  // Z-Axis
-
 #declare top_view = camera{
-    location < 0, 500, 0>
+    location < -250, 500, 0>
     right  <1.77,0,0>
-    look_at < 0,0,0>
+    look_at < -250,0,0>
 }
 #declare left_view = camera{
     location < 0, 0, 500>
@@ -46,7 +42,7 @@ cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}  // Z-Axis
     look_at < 0,0,0>
 }
 #declare right_view = camera{
-    location < 0, 0, -500>
+    location < 0, 0, -600>
     right  <1.77,0,0>
     look_at < 0,0,0>
 }
@@ -57,6 +53,11 @@ cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}  // Z-Axis
 }
 #declare back_view = camera{
     location < -500, 0, 0>
+    right  <1.77,0,0>
+    look_at < 0,0,0>
+}
+#declare bottom_view = camera{
+    location < 50, -200, 0>
     right  <1.77,0,0>
     look_at < 0,0,0>
 }
@@ -117,18 +118,36 @@ cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}  // Z-Axis
     right  <1.77,0,0>
     look_at < 0,50,0>
 }
+#declare camera_c = camera{
+    location < -150, -20, -200>
+    right  <1.77,0,0>
+    look_at < -110,-15,0>
+}
+#declare camera_d = camera{
+    location < -30, -20, -180>
+    right  <1.77,0,0>
+    look_at < -90,-25,-20>
+}
 
 light_source { < 300, 200, 50 > color White}                                                                                                
 light_source { < -120, 00, 0 > color White}
 light_source { < -120, -150, 0 > color White}
 light_source { < 0, 0, 0 > color White}
 
-camera{right_view}
+camera{camera_d}
 
 #include "bell.pov"
 #include "mouthpiece.pov"
 #include "pistons.pov"
+#include "textures.pov"
 
-//object{bell}
-//object{mouthpiece rotate<0,0,180> scale<0.3,0.3,0.3> translate<-300,0,0>}
-object{pistons}
+//object{axis scale<5,5,5>}
+
+object{bell rotate<0,0,0> scale<1.2, 1.2, 1.2> translate<120,80,50>}
+object{ Segment_of_Torus ( 58, 9, 180 )//radius major, radius minor, segment angle
+            rotate<90,-25,90> 
+            translate<-260,28,25>
+            texture{golden_texture}
+}
+//object{pistons translate<-50, 0, 0>}
+object{mouthpiece rotate<0,0,180> scale<0.3,0.3,0.3> translate<-300,80,-50>}
