@@ -1,83 +1,8 @@
 #include "colors.inc"
 #include "shapes.inc"
+#include "textures.pov"
 
-// * ---------------------- DEBUG HEADER ---------------------- *
-// Gradient Sky (Use for DEBUG since HDRI Skies are EXTREMELLY HEAVY)
-sphere{
-    0,1
-    pigment{
-        image_map{
-            hdr "st_nicholaus.hdr" once interpolate 2 map_type // Get from https://hdrmaps.com/st-nicolaus-church-interior/
-            1
-        }
-    }
-    finish{emission 1}
-    scale 1000
-    rotate<100,0,0>
-    hollow
-    no_image
-}
-/*
-// Axis Lines
-cylinder{<0,0,0>,<50,0,0>,0.5 pigment{color Red}}   // X-Axis
-cylinder{<0,0,0>,<0,50,0>,0.5 pigment{color Green}} // Y-Axis
-cylinder{<0,0,0>,<0,0,50>,0.5 pigment{color Blue}}  // Z-Axis
-*/
-#declare golden_texture = texture {
-        pigment { color rgb <0.4, 0.2, 0> }
-        finish { reflection { 0.1 } ambient 0 diffuse 0.8 }
-    }
-
-#declare silver_texture = texture {
-        pigment { color rgb <0.1, 0.1, 0.1> }
-        finish { reflection { 0.5 } ambient 0 diffuse 1 }
-    }
-
-#declare camera_1 = camera{
-    location < 100,50,150>
-    right  <1.77,0,0>
-    look_at < 0,0,0>
-}
-#declare camera_2 = camera{
-    location < 120,50,100>
-    right  <1.77,0,0>
-    look_at < 0,0,0> 
-}
-#declare camera_3 = camera{
-    location < 200,50,100>
-    right  <1.77,0,0>
-    look_at < 0,0,0> 
-}
-#declare camera_4 = camera{
-    location < 0,0, 280>
-    right  <1.77,0,0>
-    look_at < -100,0,0> 
-}
-#declare camera_5 = camera{
-    location < 120,150,220>
-    right  <1.77,0,0>
-    look_at < 0,0,0> 
-}
-#declare camera_6 = camera{
-    location < -60,60,150>
-    right  <1.77,0,0>
-    look_at < 0,0,0> 
-}
-#declare camera_7 = camera{
-    location < 150,0,0>
-    right  <1.77,0,0>
-    look_at < 0,0,0>
-}
-
-light_source { < 300, 200, 50 > color White}                                                                                                
-light_source { < -120, 00, 0 > color White}
-light_source { < -120, -150, 0 > color White}
-light_source { < 0, 0, 0 > color White}
-
-camera{camera_7}
-
-// * -------------------- END OFDEBUG HEADER ------------------ *
-difference{
+#declare mouthpiece = difference{
     merge{
         // Mouthpiece top
         difference{
