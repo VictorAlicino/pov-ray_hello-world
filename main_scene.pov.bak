@@ -16,7 +16,7 @@ sphere{
     }
     finish{emission 1}
     scale 1000
-    rotate<100,0,0>
+    rotate<0,0,0>
     hollow
     no_image
 }*/
@@ -32,22 +32,22 @@ sky_sphere {
 }
 
 #declare top_view = camera{
-    location < -250, 500, 0>
+    location < 50, 650, 0>
     right  <1.77,0,0>
-    look_at < -250,0,0>
+    look_at < 50,0,0>
 }
 #declare left_view = camera{
-    location < 0, 0, 500>
+    location < 0, 0, 600>
     right  <1.77,0,0>
     look_at < 0,0,0>
 }
 #declare right_view = camera{
     location < 0, 0, -600>
     right  <1.77,0,0>
-    look_at < 0,0,0>
+    look_at < 00,0,0>
 }
 #declare front_view = camera{
-    location < 500, 0, 0>
+    location < 800, 0, 0>
     right  <1.77,0,0>
     look_at < 0,0,0>
 }
@@ -57,16 +57,16 @@ sky_sphere {
     look_at < 0,0,0>
 }
 #declare bottom_view = camera{
-    location < 50, -200, 0>
+    location < 50, -600, 0>
     right  <1.77,0,0>
     look_at < 0,0,0>
 }
 
 
-#declare camera_1 = camera{
-    location < 100,50,150>
-    right  <1.77,0,0>
-    look_at < 0,0,0>
+#declare camera_1 = camera {
+    location <100, 50, 150>
+    right <1.77, 0, 0>
+    look_at <0, 0, 0>
 }
 #declare camera_2 = camera{
     location < 120,50,100>
@@ -128,26 +128,33 @@ sky_sphere {
     right  <1.77,0,0>
     look_at < -90,-25,-20>
 }
-
+#declare camera_e = camera{
+    location < -200, 90, -180>
+    right  <1.77,0,0>
+    look_at < -250,-25,-20>
+}
+#declare camera_f = camera{
+    location < -470, 84, -100>
+    right  <1.77,0,0>
+    look_at < -380,81,-50>
+}
+       
 light_source { < 300, 200, 50 > color White}                                                                                                
 light_source { < -120, 00, 0 > color White}
 light_source { < -120, -150, 0 > color White}
 light_source { < 0, 0, 0 > color White}
+light_source { < 800, 200, -50 > color White}  
 
-camera{camera_d}
-
+camera{camera_5}
 #include "bell.pov"
 #include "mouthpiece.pov"
 #include "pistons.pov"
+#include "trumpet.pov"
 #include "textures.pov"
+#include "case.pov"
 
 //object{axis scale<5,5,5>}
 
-object{bell rotate<0,0,0> scale<1.2, 1.2, 1.2> translate<120,80,50>}
-object{ Segment_of_Torus ( 58, 9, 180 )//radius major, radius minor, segment angle
-            rotate<90,-25,90> 
-            translate<-260,28,25>
-            texture{golden_texture}
-}
-//object{pistons translate<-50, 0, 0>}
-object{mouthpiece rotate<0,0,180> scale<0.3,0.3,0.3> translate<-300,80,-50>}
+//object{trumpet}
+
+object{trumpet_case}

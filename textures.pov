@@ -1,4 +1,5 @@
 #include "textures.inc"
+#include "colors.inc"
 
 #declare golden_texture = texture {
         pigment { color rgb <0.4, 0.2, 0> }

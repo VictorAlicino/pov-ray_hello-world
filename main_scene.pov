@@ -3,7 +3,7 @@
 
 #include "colors.inc"
 
-
+/*
 sphere{
     0,1
     pigment{
@@ -19,6 +19,16 @@ sphere{
     rotate<0,0,0>
     hollow
     no_image
+}*/
+
+// Gradient Sky (Use for DEBUG since HDRI Skies are EXTREMELLY HEAVY)
+sky_sphere {
+    pigment {
+        gradient y
+        color_map {
+            [0, 0.7 color Gray50 color Gray80]
+        }
+    }
 }
 
 #declare top_view = camera{
@@ -135,31 +145,17 @@ light_source { < -120, -150, 0 > color White}
 light_source { < 0, 0, 0 > color White}
 light_source { < 800, 200, -50 > color White}  
 
-camera{camera_f}
+camera{camera_5}
+
 #include "bell.pov"
 #include "mouthpiece.pov"
 #include "pistons.pov"
+#include "trumpet.pov"
 #include "textures.pov"
+#include "case.pov"
 
 //object{axis scale<5,5,5>}
 
-object{bell rotate<0,0,0> scale<1.2, 1.2, 1.2> translate<120,78,52>}
+//object{trumpet}
 
-object{Segment_of_Torus ( 58, 10, 180 )//radius major, radius minor, segment angle
-        rotate<90,-27,90>
-        translate<-260,27,26>
-        texture{golden_texture}
-}
-
-cone{<-265,-25,0>, 10, <-230,-25,0>, 8 texture{golden_texture}}
-object{pistons translate<-50, 0, 0>}
-cylinder{<10, -15, -25>, <250, -15, -25>, 10 texture{silver_texture}}
-
-object{Segment_of_Torus ( 50, 10, 180 )//radius major, radius minor, segment angle
-        rotate<-90,15,90>
-        translate<250,33,-38>
-        texture{golden_texture}
-}
-
-cylinder{<-320, 81, -51>, <250, 81, -51>, 10 texture{golden_texture}}
-object{mouthpiece rotate<0,0,180> scale<0.3,0.3,0.3> translate<-380,81,-50>}
+object{trumpet_case}
